@@ -1,0 +1,30 @@
+$$ ---------------------------------------------
+$$ Mujeeb Adelekan
+$$ E0
+$$ E0.rog
+$$ Testing Enumeration Types
+$* -------------------------------------------*$
+
+$***********************************************$
+$$ Main function
+$***********************************************$
+main
+    enum : month 
+    {
+        Jan, Feb, Mar, Apr,
+        May, Jun, Jul, Aug,
+        Sep, Oct, Nov, Dec
+    };
+
+    enum : season {winter, spring, summer, fall};
+
+    month currentMonth;
+    season currentSeason;
+
+    currentMonth = Sep;
+    currentSeason = fall;
+
+    print(currentMonth, "\n");   $$ should print 8
+    print(currentSeason, "\n");  $$ should print 3
+    
+end main

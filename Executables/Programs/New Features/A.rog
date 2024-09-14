@@ -1,0 +1,113 @@
+$$ ---------------------------------------------
+$$ Mujeeb Adelekan
+$$ A
+$$ A.rog
+$$ Testing Rogue Associative Arrays
+$* -------------------------------------------*$
+
+$$assoc globalArr{5}; ***WORKS***
+
+
+proc P1
+    $$ An associative array with a capacity of 4
+    assoc procArr{4};
+    
+    $$ Four (key, value) pairs
+    procArr{5} = true;          $$ (5, true)
+    procArr{5 < 4} = 4 + 7;     $$ (false, 11) 
+    procArr{'A'} = 3.5 + 4.7;   $$ ('A', 8.2)
+    procArr{1.2e1} = '#';       $$ (12.0, '#')
+
+    $$ Extra element (run-time error) *** WORKS ***
+    $$procArr{8} = 3;
+
+    $$ Existing key (value should be replaced) *** WORKS ***
+    $$procArr{5} = '&';
+
+    $$ Print the values of the associative array
+    print("procArr{5} = ", procArr{5} as bool, "\n");
+    print("procArr{false} = ", procArr{5 < 4} as int, "\n");
+    print("procArr{'A'} = ", procArr{'A'} as float, "\n");
+    print("procArr{1.2e1} = ", procArr{1.2e1} as char, "\n");
+
+    print("\n");
+end proc
+
+
+$***********************************************$
+$$ Main function
+$***********************************************$
+main
+    $$ An associative array with a capacity of 4
+    assoc a_arr{4}; 
+
+    $$ An associative array that maps hex digits with their decimal values
+    assoc hex_to_dec{6};
+
+    $$ int variable x
+    int x;
+
+    $$ Four (key, value) pairs
+    a_arr{5} = true;          $$ (5, true)
+    a_arr{5 < 4} = 4 + 7;     $$ (false, 11) 
+    a_arr{'A'} = 3.5 + 4.7;   $$ ('A', 8.2)
+    a_arr{1.2e1} = '#';       $$ (12.0, '#')
+    
+    $$ Extra element (run-time error) *** WORKS ***
+    $$a_arr{8} = 3;
+  
+
+    $$ Existing key (value should be replaced) ***WORKS***
+    $$a_arr{5} = '&';
+
+    $$ Print the values of the associative array
+    print("a_arr{5} = ", a_arr{5} as bool, "\n");
+    print("a_arr{false} = ", a_arr{5 < 4} as int, "\n");
+    print("a_arr{'A'} = ", a_arr{'A'} as float, "\n");
+    print("a_arr{1.2e1} = ", a_arr{1.2e1} as char, "\n");
+
+    print("\n");
+
+    call P1;
+
+    $$ Add the hex digits A-F with their decimal values
+    hex_to_dec{'A'} = 10;
+    hex_to_dec{'B'} = 11;
+    hex_to_dec{'C'} = 12;
+    hex_to_dec{'D'} = 13;
+    hex_to_dec{'E'} = 14;
+    hex_to_dec{'F'} = 15;
+
+    $$ Print the demical values of A-F
+    print("The demical value of A is ", hex_to_dec{'A'} as int, "\n");
+    print("The demical value of B is ", hex_to_dec{'B'} as int, "\n");
+    print("The demical value of C is ", hex_to_dec{'C'} as int, "\n");
+    print("The demical value of D is ", hex_to_dec{'D'} as int, "\n");
+    print("The demical value of E is ", hex_to_dec{'E'} as int, "\n");
+    print("The demical value of F is ", hex_to_dec{'F'} as int, "\n");
+
+    print("\n");
+
+    $$ Replace the value of key 'B' with a float literal
+    hex_to_dec{'B'} = 3.14;
+    
+    $$ Replace the value of key 'E' with a bool literal
+    hex_to_dec{'E'} = false;
+
+    $$ Print the replacement values
+    print("The *new* value of B is ", hex_to_dec{'B'} as float, "\n");
+    print("The *new* value of E is ", hex_to_dec{'E'} as bool, "\n");
+
+    print("\n");
+
+    $$ Assign an associative array element to a variable
+    x = hex_to_dec{'D'} as int;
+
+    $$ Print the decimal value of D using x
+    print("The demical value of D is still ", x, "\n");
+    print("\n");
+
+    $$ Disallow associative array references in addr() (compile-time error) ***WORKS***
+    $$print("addr(x) = ", addr(hex_to_dec), "\n");
+   
+end main

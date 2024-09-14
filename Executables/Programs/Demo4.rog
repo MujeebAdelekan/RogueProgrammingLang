@@ -1,0 +1,39 @@
+$$ ---------------------------------------------
+$$ Mujeeb Adelekan
+$$ Demo #4
+$$ Demo4.rog
+$* -------------------------------------------*$
+
+$**** Global constants ****$
+perm int F0 = 0, F1 = 1;
+
+$***********************************************$
+$$ Fibonacci(i): recursively calculate the Fibonacci numbers
+$***********************************************$
+func Fibonacci : int(i : int)
+    if (i == 0)
+        return (F0);
+    elif (i == 1)
+        return (F1);
+    else 
+        return(Fibonacci(i-2)+Fibonacci(i-1));
+    end if
+end func
+
+$***********************************************$
+$$ Main function
+$***********************************************$
+main
+    int i, n;
+
+    do 
+        input("n? ", n);
+    while(n != -1)
+        for i = 0 to n
+             print(Fibonacci(i),"\n");
+        end for
+    end while
+
+end main
+   
+

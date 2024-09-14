@@ -1,0 +1,55 @@
+$$ ---------------------------------------------
+$$ Mujeeb Adelekan
+$$ Test
+$$ Test.rog
+$* -------------------------------------------*$
+
+
+$*********** Global Constants ******************$
+perm float pi = 3.14, e = 2.72;
+
+$*********** Procedure *************************$
+proc P(io m : int, io b : bool)
+    $$ Data Definitions
+    char c;
+
+    $$ Statements
+    m = m + 1;
+    b = not b;
+end proc
+
+$************** Function **********************$
+func F : int(n : int)
+    return (n + 10);
+end func
+
+$***********************************************$
+$$ Main function
+$***********************************************$
+main
+    $$ Data definitions
+    int x, y;
+    int m;
+    bool b;
+
+    $$ Statements
+    print("Enter int values for the following:\n");
+    input("x? ", x);
+    input("y? ", y);
+    input("m? ", m);
+
+    print("Enter a bool value for the following:\n");
+    input("b? ", b);
+
+    call P(m, b); 
+
+    print(" x = ",  x, "\n");
+    print(" y = ",  y, "\n");
+    print(" m = ",  m, "\n");
+    print(" b = ",  b, "\n");
+    print("pi = ", pi, "\n");
+    print(" e = ",  e, "\n"); 
+    print("\n");
+
+    print("F(x + y) = ", F(x + y), "\n");  
+end main
