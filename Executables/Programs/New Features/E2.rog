@@ -1,0 +1,47 @@
+$$ ---------------------------------------------
+$$ Mujeeb Adelekan
+$$ E2
+$$ E2.rog
+$$ Testing Enumeration Types 2
+$$ Scoping enum declarations
+$* -------------------------------------------*$
+
+$$ Testing global enumerations (*** WORKS ***)
+enum : color {red, orange, yellow, green, blue, indigo, violet};
+color myColor;
+
+$$ Using the *global* definition of color
+proc P1    
+    myColor = red; $$ ***WORKS***
+end proc
+
+
+$$ *Subprogram* definition of color
+proc P2
+    enum : color {green, yellow, red};
+    color myColor;
+
+    myColor = red; $$ ***WORKS***
+end proc
+
+$***********************************************$
+$$ Main function
+$***********************************************$
+main
+    $$ Testing main module enumerations (*** WORKS ***)
+
+    $$ *Main* definition of color
+    enum : color {blue, red, yellow};
+   
+
+    $$ Testing enumerated type variable definition
+    color myColor;
+
+    $$ Test assigning enumerated type variables with enumeration constants
+
+    call P1;  $$ assign the *global* myColor with the *global* color value 'red'
+    call P2;  $$ assign the *local* myColor with the *local* color value 'red'
+
+    myColor = red; $$ ***WORKS***
+
+end main

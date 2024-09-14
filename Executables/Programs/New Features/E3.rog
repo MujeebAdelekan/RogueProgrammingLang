@@ -1,0 +1,29 @@
+$$ ---------------------------------------------
+$$ Mujeeb Adelekan
+$$ E3
+$$ E3.rog
+$$ Testing Enumeration Types 3
+$$ Assigning one enum variable to another
+$* -------------------------------------------*$
+
+$***********************************************$
+$$ Main function
+$***********************************************$
+main
+    enum : light {stop, slow, go};
+    enum : season {winter, spring, summer, fall};
+
+    light trafficLight;
+    season currentSeason, nextSeason;
+
+    trafficLight = slow;
+
+    currentSeason = fall;
+    nextSeason = winter;
+
+    $$ Testing assigning one enum variable to another (***WORKS***)
+    currentSeason = nextSeason;
+    $$currentSeason = trafficLight;  $$ should not work
+
+
+end main
